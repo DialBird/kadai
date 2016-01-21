@@ -1,0 +1,286 @@
+html,body{
+    margin:0;
+    width:100%;
+    height:100%;
+}
+body{
+    position:relative;
+    font-size: 30px;
+}
+body > #wrapper{
+    height:auto;
+}
+#wrapper{
+    position:relative;
+    padding-top:50px;
+    width:100%;
+    height:100%;
+    min-height: 100%;
+    background-image:url("../img/space.png");
+    background-size: contain;
+    color:white;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+h1{
+    margin-bottom: 100px;
+    font-size: 70px;
+    font-weight: bold;
+    color:white;
+}
+input[type="text"]{
+    width:500px;
+    background:transparent;
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+.text_cen{
+    text-align: center;
+}
+.center{
+    display:block;
+    margin:0 auto;
+}
+.mgn_btm{
+    margin-bottom: 50px;
+}
+.btn{
+    display:block;
+    padding:0 20px;
+    height:50px;
+    background:rgba(255,255,255,0);
+    color: white;
+    font-size: 30px;
+    text-align: center;
+    border: 0 solid;
+	box-shadow: inset 0 0 20px rgba(255,255,255,0);
+	outline: 2px solid;
+	outline-color: rgba(255,255,255,1);
+	outline-offset: 0;
+    transition: all 1s cubic-bezier(0.19,1,.22,1);
+}
+.btn:hover{
+    border: 2px solid;
+	box-shadow: inset 0 0 20px rgba(255,255,255,.8), 0 0 20px rgba(255,255,255,.2);
+	outline-color: rgba(255,255,255,0);
+	outline-offset: 15px;
+}
+.back_btn{
+    position:absolute;
+    bottom:40px;
+    right:40px;
+}
+
+/*index.php用*/
+.err_msg{
+    text-align: center;
+    color:red;
+}
+#danger_box{
+    position:absolute;
+    bottom:100px;
+    left:100px;
+    width:450px;
+    height:180px;
+    border:solid 1px red;
+}
+#danger_box img{
+    float:left;
+    background:white;
+}
+
+/*main.php用css*/
+#mode_box{
+    position:relative;
+    width:600px;
+    height:600px;
+}
+.mode_btn{
+    width:250px;
+    height:250px;
+    background:rgba(255,255,255,.1);
+    font-size:40px;
+    color:white;
+    border:0;
+    outline:2px solid;
+    outline-offset:0;
+    outline-color:rgba(255,255,255,1);
+    transition:all 0s linear;
+}
+.mode_btn:hover{
+    border:2px solid;
+    outline-offset:20px;
+    outline-color:rgba(255,255,255,0);
+    transition:all 0.3s linear;
+}
+
+/*コマンドボタンが中心からでるアニメーション*/
+@keyframes mode_btn_upleft{
+    from{
+        transform: translate3d(300px, 300px, 0);
+        opacity: 0;
+        width:0;
+        height:0;
+    }
+    to{
+        transform:none;
+        opacity: 1;
+        width:250px;
+        height:250px;
+    }
+}
+.upleft{
+    animation-name: mode_btn_upleft;
+    animation-duration: .3s;
+    animation-delay: .5s;
+    animation-fill-mode: backwards;
+    position:absolute;
+    top:20px;
+    left:20px;
+}
+@keyframes mode_btn_upright{
+    from{
+        transform: translate3d(-300px, 300px, 0);
+        opacity: 0;
+        width:0;
+        height:0;
+    }
+    to{
+        transform:none;
+        opacity: 1;
+        width:250px;
+        height:250px;
+    }
+}
+.upright{
+    animation-name: mode_btn_upright;
+    animation-duration: .3s;
+    animation-delay: .5s;
+    animation-fill-mode: backwards;
+    position:absolute;
+    top:20px;
+    right:20px;
+}
+@keyframes mode_btn_downleft{
+    from{
+        transform: translate3d(300px, -300px, 0);
+        opacity: 0;
+        width:0;
+        height:0;
+    }
+    to{
+        transform:none;
+        opacity: 1;
+        width:250px;
+        height:250px;
+    }
+}
+.downleft{
+    animation-name: mode_btn_downleft;
+    animation-duration: .3s;
+    animation-delay: .5s;
+    animation-fill-mode: backwards;
+    position:absolute;
+    bottom:20px;
+    left:20px;
+}
+@keyframes mode_btn_downright{
+    from{
+        transform: translate3d(-300px, -300px, 0);
+        opacity: 0;
+        width:0;
+        height:0;
+    }
+    to{
+        transform:none;
+        opacity: 1;
+        width:250px;
+        height:250px;
+    }
+}
+.downright{
+    animation-name: mode_btn_downright;
+    animation-duration: .3s;
+    animation-delay: .5s;
+    animation-fill-mode: backwards;
+    position:absolute;
+    bottom:20px;
+    right:20px;
+}
+
+
+
+/*show.php用css*/
+#skillbox_zone{
+    padding-top: 20px;
+    width:600px;
+    height:500px;
+    overflow:auto;
+}
+.skillbox{
+    position:relative;
+    margin-bottom: 50px;
+    width:498px;
+    height:50px;
+    border:solid 1px;
+    font-size: 25px;
+    line-height: 50px;
+}
+.msg{
+    position: absolute;
+    top:0;
+    left:200px;
+}
+.skillboxname{
+    position:absolute;
+    top:0px;
+    left:0px;
+    margin-left: 10px;
+    height:70px;
+}
+.skillboxtext{
+    position:absolute;
+    top:0;
+    right:10px;
+}
+
+
+/*show_data.php用*/
+#show_log{
+    padding:30px;
+    width:700px;
+    height:500px;
+    border:solid 1px;
+    overflow: auto;
+    box-sizing: border-box;
+}
+#show_log p{
+    border-top: solid 1px;
+}
+#show_log p:first-child{
+    border-top: none;
+}
+
+
+/*タイトルが下からフェードインするアニメーション*/
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    -webkit-transform: translate3d(0, 100%, 0);
+    transform: translate3d(0, 100%, 0);
+  }
+
+  to {
+    opacity: 1;
+    -webkit-transform: none;
+    transform: none;
+  }
+}
+
+.fadeInUp {
+    -webkit-animation-name: fadeInUp;
+    animation-name: fadeInUp;
+    animation-duration: .5s;
+}
+
