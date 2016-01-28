@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<title>PC_version</title>
+<style>
+    .btn_zone{
+        margin:0 auto 50px;
+        padding:20px;
+        width:350px;
+        height:60px;
+        border:solid 1px;
+        text-align: center;
+    }
+    .cntrl_btn_zone{
+        position:relative;
+        margin:0 auto 50px;
+        padding:20px;
+        width:350px;
+        height:150px;
+        border:solid 1px;
+        text-align: center;
+        display:none; /*ログインを押すと出現*/
+    }
+    .btn{
+        width:100px;
+        height:50px;
+    }
+    .up{
+        position:absolute;
+        top:20px;
+        left:0;
+        right:0;
+        margin:auto;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .down{
+        position:absolute;
+        bottom:20px;
+        left:0;
+        right:0;
+        margin:auto;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .left{
+        position:absolute;
+        left:20px;
+        top:0;
+        bottom:0;
+        margin:auto;
+        font-size: 30px;
+        font-weight: bold;
+    }
+    .right{
+        position:absolute;
+        right:20px;
+        top:0;
+        bottom:0;
+        margin:auto;
+        font-size: 30px;
+        font-weight: bold;
+    }
+</style>
+</head>
+<body>
+    <div id="wrapper">
+        <div class="btn_zone">
+            <button id="normal" class="btn">Normal</button>
+            <button id="weak" class="btn">Weak</button>
+            <button id="hard" class="btn">Hard</button>
+        </div>
+        <div class="btn_zone login_btn_zone">
+            <button id="login" class="btn">Log In!</button>
+        </div>
+        <div class="cntrl_btn_zone">
+            <button id="login" class="btn dir_btn up">↑</button>
+            <button id="login" class="btn dir_btn left"><-</button>
+            <button id="login" class="btn dir_btn right">-></button>
+            <button id="login" class="btn dir_btn down">↓</button>
+        </div>
+    </div><!--wrapper-->
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="socket.io/socket.io.js"></script>
+<script>
+$(function(){
+    //socketに接続
+    var socket = io.connect();
+    
+    
+    //Unityにpowerをおくる実験
+    var power = 0;
+    
+    $('#normal').on('click',function(){
+        power = "50";
+        socket.json.emit('power',{      //基本的にさいしょからJSONにして送信する。（Unityに対しては）
+            power : power
+        });
+    });
+    $('#weak').on('click',function(){
+        power = "10";
+        socket.json.emit('power',{
+            power : power
+        });
+    });
+    $('#hard').on('click',function(){
+        power = "100";
+        socket.json.emit('power',{
+            power : power
+        });
+    })
+    
+    //ログインボタンを押したらUnityにオブジェクトを出す実験（ページを離れたらオブジェクトが消える）-----------------------
+    
+    $('#login').on('click',function(){
+        socket.emit("new_player",'');
+        $('.login_btn_zone').remove();
+        $('.cntrl_btn_zone').show();
+    });
+    socket.on("new_player",function(data){
+        console.log('Joined id is : '+ data.id)
+    });
+    
+    //自分のプレーヤーが出現した後、コントロールする命令---------------------------------------
+    
+    //ボタンを押している間命令し続ける関数
+    var tid;
+    var direction;
+    function keep(direction){
+        tid = setTimeout(function(){
+            socket.emit('move',direction);
+            keep(direction);
+        },10);
+    };
+    
+    //ボタンを押した方向でemitする内容を変化
+    $('.dir_btn').on('mousedown',function(){
+        if($(this).hasClass('up')){
+            console.log('up');
+            direction = 'up';
+        }else if($(this).hasClass('left')){
+            console.log('left');
+            direction = 'left';
+        }else if($(this).hasClass('right')){
+            console.log('right');
+            direction = 'right';
+        }else if($(this).hasClass('down')){
+            console.log('down');
+            direction = 'down';
+        }
+        keep(direction);
+    }).on('mouseup',function(){
+        clearTimeout(tid);
+    })
+    
+    
+})
+</script>
+</body>
+</html>
