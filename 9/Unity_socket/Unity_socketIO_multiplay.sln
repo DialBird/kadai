@@ -1,0 +1,29 @@
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{CB844BE0-6A59-FC39-DA57-D40E3780F252}") = "Unity_socketIO_multiplay", "Assembly-CSharp.csproj", "{C5CA50D2-2198-452F-560A-F07D6FF498F8}"
+EndProject
+Project("{CB844BE0-6A59-FC39-DA57-D40E3780F252}") = "Unity_socketIO_multiplay", "Assembly-CSharp-Editor.csproj", "{0C4BF3C0-2B63-0B78-2DF3-BFFFAABA6DF3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C5CA50D2-2198-452F-560A-F07D6FF498F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5CA50D2-2198-452F-560A-F07D6FF498F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5CA50D2-2198-452F-560A-F07D6FF498F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5CA50D2-2198-452F-560A-F07D6FF498F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0C4BF3C0-2B63-0B78-2DF3-BFFFAABA6DF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0C4BF3C0-2B63-0B78-2DF3-BFFFAABA6DF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0C4BF3C0-2B63-0B78-2DF3-BFFFAABA6DF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0C4BF3C0-2B63-0B78-2DF3-BFFFAABA6DF3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
+	EndGlobalSection
+EndGlobal
