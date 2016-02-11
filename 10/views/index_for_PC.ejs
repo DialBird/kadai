@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>index_for_PC2.html</title>
+<link rel="stylesheet" href="../public/css/style_for_PC.css" type="text/css">
+<link href='https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400,900italic' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="../public/css/selectordie.css" type="text/css">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="qrcode_zone">
+            <div id="qrcode">
+               <h1 style="text-align:center">QRコードをスマホで読み取ろう</h1>
+           </div>
+        </div>
+        <h1 id="title">CUBLOCK</h1>
+        <div id="canvas"></div>
+        <div id="manipulate_zone">
+            <p class="intro" style="">Select Mode</p>
+            <select id="mode">
+                <option value="color" selected>color</option>
+                <option value="size">size</option>
+                <option value="disappear">dissappear</option>
+                <option value="sound">sound</option>
+            </select>
+        </div>
+        <div id="texture_stock_zone">
+            <p class="intro">Image Stock</p>
+                <input type="file" id="getImage" style="display:block;">
+            <div id="stocks">
+            </div>
+            <button id="set_texture">テクスチャを貼る</button>
+        </div>
+        <div>
+            
+        </div>
+            
+    </div><!--wrapper-->
+    
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="../public/js/selectordie.min.js"></script>
+<script src="../public/js/jquery.qrcode.min.js"></script>
+<script src="../public/js/three.min.js"></script>
+<script src="../public/js/OrbitControls.js"></script>
+<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
+<script src="../public/js/desplayBox.js"></script>
+<script src="../public/js/box_effect.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.22/p5.min.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.22/addons/p5.dom.min.js"></script>-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.22/addons/p5.sound.min.js"></script>
+<script src="../public/js/sound_catch.js"></script>
+<script src="../public/js/main_for_PC.js"></script>
+</body>
+</html>
